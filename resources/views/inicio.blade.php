@@ -1,1 +1,2 @@
 @extends('plantillas.main')
+hola
