@@ -16,6 +16,7 @@ class ComposerStaticInitfca9a568efa8a67f0889ae62ff1126d9
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'a1944ad99b2c9dde1f8975eab6b29a40' => __DIR__ . '/..' . '/acacha/helpers/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
@@ -89,6 +90,7 @@ class ComposerStaticInitfca9a568efa8a67f0889ae62ff1126d9
         ),
         'C' => 
         array (
+            'Creativeorange\\Gravatar\\' => 24,
             'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
@@ -100,6 +102,8 @@ class ComposerStaticInitfca9a568efa8a67f0889ae62ff1126d9
         'A' => 
         array (
             'App\\' => 4,
+            'Acacha\\User\\' => 12,
+            'Acacha\\AdminLTETemplateLaravel\\' => 31,
         ),
     );
 
@@ -242,6 +246,10 @@ class ComposerStaticInitfca9a568efa8a67f0889ae62ff1126d9
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Creativeorange\\Gravatar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/creativeorange/gravatar/src',
+        ),
         'Collective\\Html\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
@@ -261,6 +269,14 @@ class ComposerStaticInitfca9a568efa8a67f0889ae62ff1126d9
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
+        ),
+        'Acacha\\User\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/acacha/user/src',
+        ),
+        'Acacha\\AdminLTETemplateLaravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src',
         ),
     );
 
@@ -321,6 +337,26 @@ class ComposerStaticInitfca9a568efa8a67f0889ae62ff1126d9
     );
 
     public static $classMap = array (
+        'Acacha\\AdminLTETemplateLaravel\\AdminLTE' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/AdminLTE.php',
+        'Acacha\\AdminLTETemplateLaravel\\Compiler\\StubFileCompiler' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Compiler/StubFileCompiler.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\AdminLTEAdmin' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/AdminLTEAdmin.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\AdminLTEAdminAlt' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/AdminLTEAdminAlt.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\HasEmail' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/HasEmail.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\HasUsername' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/HasUsername.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\Installable' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/Installable.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\MakeAdminUserSeeder' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/MakeAdminUserSeeder.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\PublishAdminLTE' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/PublishAdminLTE.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\PublishAdminLTEAlt' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/PublishAdminLTEAlt.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\PublishAdminLTESidebar' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/PublishAdminLTESidebar.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\PublishAdminLTESidebarAlt' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/PublishAdminLTESidebarAlt.php',
+        'Acacha\\AdminLTETemplateLaravel\\Facades\\AdminLTE' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Facades/AdminLTE.php',
+        'Acacha\\AdminLTETemplateLaravel\\Filesystem\\FileAlreadyExists' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Filesystem/FileAlreadyExists.php',
+        'Acacha\\AdminLTETemplateLaravel\\Filesystem\\Filesystem' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Filesystem/Filesystem.php',
+        'Acacha\\AdminLTETemplateLaravel\\Providers\\AdminLTETemplateServiceProvider' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Providers/AdminLTETemplateServiceProvider.php',
+        'Acacha\\AdminLTETemplateLaravel\\app\\Exceptions\\Handler' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Exceptions/Handler.php',
+        'Acacha\\User\\GuestUser' => __DIR__ . '/..' . '/acacha/user/src/GuestUser.php',
+        'Acacha\\User\\Http\\Middleware\\GuestUser' => __DIR__ . '/..' . '/acacha/user/src/Http/Middleware/GuestUser.php',
+        'Acacha\\User\\Providers\\GuestUserServiceProvider' => __DIR__ . '/..' . '/acacha/user/src/Providers/GuestUserServiceProvider.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -369,6 +405,10 @@ class ComposerStaticInitfca9a568efa8a67f0889ae62ff1126d9
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
+        'Creativeorange\\Gravatar\\Exceptions\\InvalidEmailException' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Exceptions/InvalidEmailException.php',
+        'Creativeorange\\Gravatar\\Facades\\Gravatar' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Facades/Gravatar.php',
+        'Creativeorange\\Gravatar\\Gravatar' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Gravatar.php',
+        'Creativeorange\\Gravatar\\GravatarServiceProvider' => __DIR__ . '/..' . '/creativeorange/gravatar/src/GravatarServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
