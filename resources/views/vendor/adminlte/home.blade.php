@@ -9,10 +9,10 @@
 
 @section('main-content')
 	<!--<section class="content">-->
-		@include('inicio.primera')
-		@include('inicio.segunda')
-		@include('inicio.tercera')
-		@include('inicio.cuarta')
+		@include('home.primera')
+		@include('home.segunda')
+		@include('home.tercera')
+		@include('home.cuarta')
 	<!--</section>-->
 <!-- /.content -->
 @endsection

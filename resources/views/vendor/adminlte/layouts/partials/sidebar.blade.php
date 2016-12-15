@@ -94,14 +94,14 @@
             
 
             <li>
-              <a href="#"><i class="fa fa-sticky-note-o"></i> <span>{{ trans('adminlte_lang::message.tickets') }}</span>
+              <a href="#"><i class="fa fa-sticky-note-o"></i> <span>{{ trans('adminlte_lang::message.ticketsServicios') }}</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> <span>{{ trans('adminlte_lang::message.generar') }}</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> <span>{{ trans('adminlte_lang::message.cerrar') }}</span></a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> <span>{{ trans('adminlte_lang::message.ticketGenerar') }}</span></a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> <span>{{ trans('adminlte_lang::message.ticketCerrar') }}</span></a></li>
               </ul>
             </li>
             <!--=========================================

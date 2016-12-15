@@ -1,3 +1,14 @@
+<!--=================================================
+=            Boton de solicitar servicio            =
+==================================================-->
+<div class="row">
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+    
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+</div>
+<!--====  End of Boton de solicitar servicio  ====-->
 <div class="row">
         <div class="col-md-12">
           <div class="box">
