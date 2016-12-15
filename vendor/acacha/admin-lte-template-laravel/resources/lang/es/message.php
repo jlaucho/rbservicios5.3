@@ -48,7 +48,7 @@ return [
     'level'                   => 'Nivel',
     'here'                    => 'Aquí',
     'descriptionpackage'      => 'Un laravel 5 paquete que cambia de forma predeterminada Laravel scaffolding/boilerplate a la plantilla AdminLTE',
-    'createdby'               => 'Creado por',
+    'createdby'               => 'Sistema Creado por',
     'seecode'                 => 'Ver código en',
     'online'                  => 'En Línea',
     'home'                    => 'Inicio',
@@ -66,9 +66,9 @@ return [
     'checked'                 => 'comprobado',
     'informationsettings'     => 'Parte de la información acerca de esta opción de configuración generales',
     'togglenav'               => 'Activa la navegación',
-    'tabmessages'             => 'Usted tiene 4 mensajes',
+    'tabmessages'             => 'Lista de mensajes',
     'supteam'                 => 'Equipo de Apoyo',
-    'awesometheme'            => '¿Por qué no comprar un nuevo tema impresionante?',
+    'awesometheme'            => '¿Por qué no comprar?',
     'allmessages'             => 'Ver todos los mensajes',
     'notifications'           => 'Tiene 10 notificaciones',
     'newmembers'              => '5 nuevos miembros se unieron hoy',
@@ -125,4 +125,41 @@ return [
     'password'                => 'Contraseña',
     'retrypepassword'         => 'Vuelva a escribir la contraseña',
     'fullname'                => 'Nombre completo',
+    /*=======================================
+    =            Nuevos mensajes            =
+    =======================================*/
+    'conductores'               => 'Conductores',
+    'empresas'                => 'Empresas',
+    'clientes'                => 'Clientes',
+    'usuarios'                => 'Usuarios',
+    'listar'                  => 'Listar',
+    'vehiculos'               => 'Vehiculos',
+    'facturas'                => 'Facturas',
+    'reportes'                => 'Reportes',
+    'generar'                 => 'Generar',
+    'orden'                   => 'Orden',
+    'trabajos'                => 'Trabajos',
+    'pagos'                   => 'Pagos',
+    'odc'                     => 'ODC',
+    'todas'                   => 'Todas',
+    'pagadas'                 => 'Pagadas',
+    'pendientes'              => 'Pendientes',
+    'rangoFecha'              => 'Rango de fecha',
+    'tickets'                 => 'Generar Ticket',
+    'buscarTicket'            => 'Buscar tickes de servicio',
+    'cerrar'                  => 'Cerra',
+    'estadisticaSistema'      => 'Estadistica de sistema',
+    'ordenesPendientes'       => 'Ordenes pendientes',
+    'ticketsAbiertos'         => 'Tickets abiertos',
+    'facturasPendientes'      => 'Facturas pendientes',
+    'solicitarServicio'       => 'solicitar Servicio',
+    'footerSistem'            => 'Sistema creado para la empresa Rangel Briceño Servicios C.A',
+    'de'                      => 'de',
+
+
+
+    
+    
+    /*=====  End of Nuevos mensajes  ======*/
+    
 ];

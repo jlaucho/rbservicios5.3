@@ -29,7 +29,8 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-blue sidebar-mini">
+<!--<body class="skin-blue sidebar-mini">-->
+<body class="hold-transition skin-blue-light sidebar-mini">
 <div id="app">
     <div class="wrapper">
 
@@ -46,15 +47,17 @@ desired effect
         <section class="content">
             <!-- Your Page Content Here -->
             @yield('main-content')
+           
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
     @include('adminlte::layouts.partials.controlsidebar')
 
     @include('adminlte::layouts.partials.footer')
-
+    <div class="control-sidebar-bg"></div>
 </div><!-- ./wrapper -->
 </div>
+
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
 @show
