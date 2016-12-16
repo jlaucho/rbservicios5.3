@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,14 +12,14 @@ class Factura extends Model
     ];
     public function Cliente()
     {
-    	return $this->belongsTo('App\Cliente','cliente_id','id');
+    	return $this->belongsTo('App\Modelos\Cliente','cliente_id','id');
     }
     public function correo()
     {
-    	return $this->belongsTo('App\Correo','correo_id','id');
+    	return $this->belongsTo('App\Modelos\Correo','correo_id','id');
     }
     public function detalles()
     {
-        return $this->hasMany('App\detalleFactura','id_factura','id');
+        return $this->hasMany('App\Modelos\detalleFactura','id_factura','id');
     }
 }

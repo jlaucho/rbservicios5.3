@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +13,6 @@ class Vehiculos extends Model
 
     public function conductor()
     {
-    	return $this->belongsTo('App\User','id_user','id');
+    	return $this->belongsTo('App\Modelos\User','id_user','id');
     }
 }

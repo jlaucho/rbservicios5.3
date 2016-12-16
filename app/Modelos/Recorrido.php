@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +13,6 @@ class Recorrido extends Model
 
     public function correo()
     {
-    	return $this->belongsTo('App\Correo','correo_id','id');
+    	return $this->belongsTo('App\Modelos\Correo','correo_id','id');
     }
 }

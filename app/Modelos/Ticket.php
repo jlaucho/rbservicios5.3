@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,15 +8,15 @@ class Ticket extends Model
 {
     protected $table	='ticket_servicio';
     protected $fillable	=[
-    	'numTicket','fechaServicio','idUser','id_usuario','created_at'
+    	'numTicket','fechaServicio','encomienda','odc','idUser','id_usuario','created_at'
     ];
 
     public function usuario()
     {
-    	return $this->belongsTo('App\UsuarioCliente','id_usuario','id');
+    	return $this->belongsTo('App\Modelos\UsuarioCliente','id_usuario','id');
     }
     public function correo()
     {
-    	return $this->hasOne('App\Correo','id_ticket','id');
+    	return $this->hasOne('App\Modelos\Correo','id_ticket','id');
     }
 }

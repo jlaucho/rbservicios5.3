@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,18 +16,18 @@ class Correo extends Model
 
     public function user()
     {
-    	return $this->belongsTo('App\User','user_id','id');
+    	return $this->belongsTo('App\Modelos\User','user_id','id');
     }
     public function recorridos()
     {
-        return $this->hasMany('App\Recorrido','correo_id', 'id'); 
+        return $this->hasMany('App\Modelos\Recorrido','correo_id', 'id'); 
     }
     public function factura()
     {
-        return $this->hasOne('App\Factura','correo_id','id');
+        return $this->hasOne('App\Modelos\Factura','correo_id','id');
     }
     public function ticket()
     {
-        return $this->belongsTo('App\Ticket','id_ticket','id');
+        return $this->belongsTo('App\Modelos\Ticket','id_ticket','id');
     }
 }

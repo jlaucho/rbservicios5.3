@@ -30,7 +30,7 @@ desired effect
 |---------------------------------------------------------|
 -->
 <!--<body class="skin-blue sidebar-mini">-->
-<body class="hold-transition skin-blue-light fixed">
+<body class="hold-transition skin-blue-light sidebar-mini">
 <div id="app">
     <div class="wrapper">
 

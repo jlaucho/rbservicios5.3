@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,14 +13,14 @@ class UsuarioCliente extends Model
 
     public function cliente()
     {
-    	return $this->belongsTo('App\Cliente', 'id_Cliente','id');
+    	return $this->belongsTo('App\Modelos\Cliente', 'id_Cliente','id');
     }
     public function tickets()
     {
-    	return $this->hasMany('App\User','id_User','id');
+    	return $this->hasMany('App\Modelos\Ticket','id_usuario','id');
     }
     public function usuario ()
     {
-        return $this->belongsTo('App\User','id_User','id');
+        return $this->belongsTo('App\Modelos\User','id_User','id');
     }
 }

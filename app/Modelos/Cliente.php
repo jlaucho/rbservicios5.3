@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,10 +12,10 @@ class Cliente extends Model
     ];
     public function facturas()
     {
-    	return $this->hasMany('App\Factura','cliente_id','id');
+    	return $this->hasMany('App\Modelos\Factura','cliente_id','id');
     }
     public function usuarios()
     {
-    	return $this->hasMany('App\UsuarioCliente','id_Cliente','id');
+    	return $this->hasMany('App\Modelos\UsuarioCliente','id_Cliente','id');
     }
 }

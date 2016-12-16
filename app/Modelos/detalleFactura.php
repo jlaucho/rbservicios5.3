@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +12,6 @@ class detalleFactura extends Model
     ];
     public function factura()
     {
-    	return $this->belongsTo('App\Factura','id_factura','id');
+    	return $this->belongsTo('App\Modelos\Factura','id_factura','id');
     }
 }
