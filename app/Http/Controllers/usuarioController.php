@@ -13,7 +13,7 @@ class usuarioController extends Controller
      */
     public function index()
     {
-        //
+        return view('usuarios.index.index');
     }
 
     /**
@@ -23,7 +23,8 @@ class usuarioController extends Controller
      */
     public function create()
     {
-        //
+        //dd("estamos en create");
+        return view('usuarios.create.create');
     }
 
     /**
