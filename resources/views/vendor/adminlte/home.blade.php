@@ -3,6 +3,9 @@
 @section('htmlheader_title')
 	{{ trans('adminlte_lang::message.home') }}	
 @endsection
+@section('contentheader_title')
+	{{trans('adminlte_lang::message.home')}}
+@stop
 @section('contentheader_description')
 	{{trans('adminlte_lang::message.estadisticaSistema')}}
 @stop

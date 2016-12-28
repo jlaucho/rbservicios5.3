@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="box-body collapse">
-          Para registrar usuarios dirijase a el menu del lado izquierdo, pulse usuario y luego registrar
+          Para registrar el usuario asegurese de rellenar todas las casillas, verifique los datos y pulse registrar.
         </div>
         <!-- /.box-body -->
         <div class="box-footer collapse">

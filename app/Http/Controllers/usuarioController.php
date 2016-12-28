@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Modelos\User;
 use Illuminate\Http\Request;
 
 class usuarioController extends Controller
@@ -35,7 +36,18 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* Se inicializa el objeto tipo Usuario */
+        $usu = new User();
+        /* Se guardan los datos en el objeto */
+        $usu->fill($request->all());
+        /* Como el password en el objeto User NO es fllable, se quiene que definir */        
+        $usu->password = bcrypt($request->password);
+        /* Se guardan los datos en la BD */
+        $usu->save();
+        /* Se redirije a la pagina de listar de Usuario */
+        return redirect()->route('usuarios.index');
+        
+        
     }
 
     /**
