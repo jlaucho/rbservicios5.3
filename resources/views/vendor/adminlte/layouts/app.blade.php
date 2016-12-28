@@ -60,8 +60,10 @@ desired effect
 
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
+     @yield('scriptPagina')
 @show
-@yield('scripPagina')
+
+   
 
 </body>
 </html>

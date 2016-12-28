@@ -9,7 +9,7 @@
   
   <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title">Registro de usuarios</h3>
+        <h3 class="box-title">Registro de {{ trans('adminlte_lang::message.usuarios') }}</h3>
       </div>
       <!-- /.box-header -->
       <!-- form start -->
@@ -53,8 +53,8 @@
               <!-- Nivel de Usuario -->
               
               <div class="form-group">
-                {!! Form::label('tipo', 'Nivel', []) !!}
-                {!! Form::select('tipo', (['uno' =>'UNO']), null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Nivel']) !!}
+                {!! Form::label('type', 'Nivel', []) !!}
+                {!! Form::select('type', (['superAdmin'=>'Super Administrador', 'admin'=>'Administrador de sistema', 'usuario_cliente' => 'Usuario', 'conductor' =>'Conductor']), null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Nivel']) !!}
               </div>
               <!-- Clave de Usuario -->
               
@@ -97,6 +97,11 @@
             </div>
         </div>
         
+        </div>
+        <div id='displayEmpresa' style='visibility: hidden'>
+          
+        {!! Form::label('Cliente', 'Seleccione el Cliente', []) !!}
+        {!! Form::select('Cliente', (['cli'=>'Lista de clientes']), null, ['class'=>'form-control']) !!}
         </div>
         <!-- Parte baja de formulario donde estan los botones -->
         

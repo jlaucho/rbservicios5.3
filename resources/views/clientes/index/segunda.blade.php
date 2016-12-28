@@ -15,7 +15,7 @@
   
   <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Usuarios registrados en el sistema</h3>
+              <h3 class="box-title">Clientes registrados en el sistema</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -24,9 +24,9 @@
                   <tr>
                     <th>Num</th>
                     <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>E-mail</th>
-                    <th>Tipo</th>
+                    <th>RIF</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
                     <th>Modificar</th>
                   </tr>
                 </thead>
@@ -34,31 +34,22 @@
                 @php 
                 $count = 0;
                 @endphp
-                  @foreach ($usu as $u)
+                  @foreach ($cli as $c)
                     @php 
                     $count++;
                     @endphp
                     <tr>
                       <td>{{$count}}</td>
-                      <td>{{$u->name}}</td>
-                      <td>{{$u->apellido}}</td>
-                      <td>{{$u->email}}</td>
-                      <td>{{$u->type}}</td>
+                      <td>{{$c->nameCli}}</td>
+                      <td>{{$c->RIF_CedulaCli}}</td>
+                      <td>{{$c->direccionCli}}</td>
+                      <td>{{$c->telefonoCli}}</td>
                       <td>
-                        <a href="{{route('usuarios.show',$u->id)}}" class="btn btn-link">ver</a>
+                        <a href="{{route('cliente.edit',$c->id)}}" class="btn btn-link">ver</a>
                       </td>
                     </tr>    
                   @endforeach
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <th>Num</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>E-mail</th>
-                    <th>Tipo</th>
-                  </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->

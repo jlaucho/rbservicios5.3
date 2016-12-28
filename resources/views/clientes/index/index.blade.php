@@ -10,16 +10,16 @@
 	{{trans('adminlte_lang::message.estadisticaSistema')}}
 @stop
 @section('ubicacion')
-	{{ trans('adminlte_lang::message.usuarios') }}</a></li>
+	{{ trans('adminlte_lang::message.clientes') }}</a></li>
     <li class="active">{{ trans('adminlte_lang::message.home') }}
 @stop
 
 @section('main-content')
 	<!--<section class="content">-->
-		@include('usuarios.index.primera')
-		@include('usuarios.index.segunda')
-		@include('usuarios.index.tercera')
-		@include('usuarios.index.cuarta')
+		@include('clientes.index.primera')
+		@include('clientes.index.segunda')
+		@include('clientes.index.tercera')
+		@include('clientes.index.cuarta')
 	<!--</section>-->
 <!-- /.content -->
 @endsection

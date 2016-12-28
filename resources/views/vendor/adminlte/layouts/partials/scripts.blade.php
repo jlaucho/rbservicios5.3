@@ -18,7 +18,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('dist/js/demo.js')}}"></script>
+<<script src="{{asset('dist/js/demo.js')}}"></script>
 <!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
 <!-- Laravel App -->
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
@@ -32,3 +32,5 @@
         'csrfToken' => csrf_token(),
     ]) !!};
 </script>
+
+

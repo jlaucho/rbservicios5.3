@@ -11,13 +11,54 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Modelos\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->firstName,
+        'apellido'	=> $faker->lastName,
+        'direccion'	=> $faker->address,
+        'cedula'	=> $faker->randomNumber($nbDigits = 8),
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'type'		=> $faker->randomElement(['superAdmin', 'admin', 'cliente', 'usuario_cliente', 'conductor']),
+        'password' => bcrypt('12345678'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Modelos\Vehiculos::class, function (Faker\Generator $faker) {
+
+    return [
+        'marca' => $faker->randomElement(['Chevrolet', 'Toyota', 'Hyundai', 'Ford', 'Mitsubishi']),
+        'modelo'  => $faker->randomElement(['Aveo', 'Terios', 'Tucson', 'Elantra', 'Tahoe']),
+        'placa' => $faker->regexify('[0-9A-Z]{7}'),
+        'responsabilidadCivil'  => $faker->dateTimeBetween($startDate = 'now', $endDate = '+ 1 years'/*, $timezone = date_default_timezone_get()*/),
+        'id_user' => function () {
+            return factory(App\Modelos\User::class)->create()->id;
+        }
+    ];
+});
+
+$factory->define(App\Modelos\Cliente::class, function (Faker\Generator $faker) {
+
+    return [
+        'nameCli' => $faker->catchPhrase,
+        'RIF_CedulaCli'  => $faker->regexify('([jJ])-([0-9A-Z]{8})-([0-9]{1})'),
+        'direccionCli' => $faker->address,
+        'telefonoCli'  => $faker->regexify('([02|04])([1,2,4,6]{2})([0-9]{8})'),
+        'descripcionCli' => $faker->text,
+    ];
+});
+
+$factory->define(App\Modelos\UsuarioCliente::class, function (Faker\Generator $faker) {
+
+    return [
+        'id_user' => function () {
+            return factory(App\Modelos\User::class)->create()->id;
+        },
+        'id_Cliente' => function () {
+            return factory(App\Modelos\Cliente::class)->create()->id;
+        },
+        
     ];
 });

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Modelos\Cliente;
-use App\Modelos\User;
 use Illuminate\Http\Request;
 
-class usuarioController extends Controller
+class clienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,10 @@ class usuarioController extends Controller
      */
     public function index()
     {
-        /*----------  Se guardan los registro de base de datos en la variable usu  ----------*/
-        $usu = User::all();
+        $cli = Cliente::all();
         
-        return view('usuarios.index.index')
-            ->with('usu',$usu);
+        return view('clientes.index.index')
+            ->with('cli',$cli);
     }
 
     /**
@@ -29,9 +27,7 @@ class usuarioController extends Controller
      */
     public function create()
     {
-        //dd("estamos en create");
-                    
-        return view('usuarios.create.create');
+        return view('clientes.create.create');
     }
 
     /**
@@ -42,18 +38,11 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-        /* Se inicializa el objeto tipo Usuario */
-        $usu = new User();
-        /* Se guardan los datos en el objeto */
-        $usu->fill($request->all());
-        /* Como el password en el objeto User NO es fllable, se quiene que definir */        
-        $usu->password = bcrypt($request->password);
-        /* Se guardan los datos en la BD */
-        $usu->save();
-        /* Se redirije a la pagina de listar de Usuario */
-        return redirect()->route('usuarios.index');
-        
-        
+        $cli = new Cliente();
+        $cli->fill($request->all());
+        $cli->save();
+
+        return redirect()->route('cliente.index');
     }
 
     /**
@@ -64,8 +53,8 @@ class usuarioController extends Controller
      */
     public function show($id)
     {
-        $usu = User::find($id);
-        dd($usu);
+        $cli = Cliente::find($id);
+        dd($cli);
     }
 
     /**
@@ -76,7 +65,9 @@ class usuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cli = Cliente::find($id);
+        return view('clientes.edit.edit')
+            ->with('cli',$cli);
     }
 
     /**
@@ -88,7 +79,11 @@ class usuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-     //
+        $cli = Cliente::find($id);
+        $cli->fill($request->all());
+        $cli->save();
+
+        return redirect()->route('cliente.index');
     }
 
     /**
