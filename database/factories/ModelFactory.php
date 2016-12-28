@@ -11,13 +11,17 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Modelos\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->firstName,
+        'apellido'	=> $faker->lastName,
+        'direccion'	=> $faker->address,
+        'cedula'	=> $faker->randomNumber($nbDigits = 8),
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'type'		=> $faker->randomElement(['superAdmin', 'admin', 'cliente', 'usuario_cliente', 'conductor']),
+        'password' => bcrypt('12345678'),
         'remember_token' => str_random(10),
     ];
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Modelos\User;
 
 class usuarioController extends Controller
 {
@@ -13,7 +14,11 @@ class usuarioController extends Controller
      */
     public function index()
     {
-        return view('usuarios.index.index');
+        /*----------  Se guardan los registro de base de datos en la variable usu  ----------*/
+        $usu = User::all();
+        
+        return view('usuarios.index.index')
+            ->with('usu',$usu);
     }
 
     /**
@@ -69,7 +74,7 @@ class usuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+     //
     }
 
     /**

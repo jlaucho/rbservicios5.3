@@ -16,3 +16,10 @@
 	<!--</section>-->
 <!-- /.content -->
 @endsection
+@section('scriptPagina')
+		<script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
+		<script src="{{asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+	<script type="text/javascript">
+		 $("#example1").DataTable();
+	</script>
+@stop
