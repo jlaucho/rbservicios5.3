@@ -30,8 +30,9 @@ class usuarioController extends Controller
     public function create()
     {
         //dd("estamos en create");
-                    
-        return view('usuarios.create.create');
+        $cli = Cliente::pluck('nameCli', 'id');            
+        return view('usuarios.create.create')
+            ->with('cli',$cli);
     }
 
     /**

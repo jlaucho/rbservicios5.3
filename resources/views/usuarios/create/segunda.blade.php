@@ -101,7 +101,7 @@
         <div id='displayEmpresa' style='visibility: hidden'>
           
         {!! Form::label('Cliente', 'Seleccione el Cliente', []) !!}
-        {!! Form::select('Cliente', (['cli'=>'Lista de clientes']), null, ['class'=>'form-control']) !!}
+        {!! Form::select('Cliente', $cli, null, ['class'=>'form-control','required','placeholder'=>'Seleccione el Cliente']) !!}
         </div>
         <!-- Parte baja de formulario donde estan los botones -->
         

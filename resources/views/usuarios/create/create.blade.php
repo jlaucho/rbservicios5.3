@@ -1,5 +1,8 @@
 @extends('adminlte::layouts.app')
 
+@section('linkStyles')
+	<link rel="stylesheet" type="text/css" href="{{asset('plugins/chosen/chosen.min.css')}}">
+@stop
 @section('htmlheader_title')
 	{{ trans('adminlte_lang::message.register') }}	
 @endsection
@@ -26,33 +29,25 @@
 
 @section('scriptPagina')
 	<script src="{{asset('plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+	<script src="{{asset('plugins/chosen/chosen.jquery.js')}}" type="text/javascript"></script>
     <script type="text/javascript">
     	$('#datepicker').datepicker({
       autoclose: true
     });
     	$(document).ready(function(){
+    		$('#Cliente').chosen();
     		$('#type').change(function() {
     			var type = $('#type').val();
     			if(type == 'usuario_cliente'){
-    				$('#displayEmpresa').attr('style','visibility:visible');
-    				/*$.ajax({
-    					url: '/path/to/file',
-    					type: 'default GET (Other values: POST)',
-    					dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-    					data: {param1: 'value1'},
-    				})
-    				.done(function() {
-    					console.log("success");
-    				})
-    				.fail(function() {
-    					console.log("error");
-    				})
-    				.always(function() {
-    					console.log("complete");
-    				});*/
-    				
+					$('#Cliente').attr('required', true);
+    				$('#displayEmpresa').attr({
+    					'style':'visibility:visible',
+    				});
     			}else{
-    				$('#displayEmpresa').attr('style','visibility:hidden');
+    				$('#Cliente').attr('required', false);
+    				$('#displayEmpresa').attr({
+    					'style':'visibility:hidden'
+    				});
     			}
     		});
     	});

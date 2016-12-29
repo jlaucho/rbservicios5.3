@@ -7,8 +7,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 @section('htmlheader')
     @include('adminlte::layouts.partials.htmlheader')
+    @yield('linkStyles')
 @show
-
 <!--
 BODY TAG OPTIONS:
 =================
@@ -60,7 +60,7 @@ desired effect
 
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
-     @yield('scriptPagina')
+    @yield('scriptPagina')
 @show
 
    
