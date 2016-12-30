@@ -51,7 +51,10 @@ class usuarioController extends Controller
         /* Como el password en el objeto User NO es fllable, se quiene que definir */        
         $usu->password = bcrypt($request->password);
         /*----------  Se guarda la informacion de la foto  ----------*/
-        request()->file('img')->store('avatar');
+        $extension = request()->file('img')->getClientOriginalExtension();
+
+        $nombre = time().'_'.$request->name.'_'.$request->apellido.'.'.$extension;
+        request()->file('img')->storeAs('',$nombre,'img');
         /* Se guardan los datos en la BD */
         $usu->save();
         
