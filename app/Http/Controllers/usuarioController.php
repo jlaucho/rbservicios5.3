@@ -43,14 +43,18 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
+        
         /* Se inicializa el objeto tipo Usuario */
         $usu = new User();
         /* Se guardan los datos en el objeto */
         $usu->fill($request->all());
         /* Como el password en el objeto User NO es fllable, se quiene que definir */        
         $usu->password = bcrypt($request->password);
+        /*----------  Se guarda la informacion de la foto  ----------*/
+        request()->file('img')->store('avatar');
         /* Se guardan los datos en la BD */
         $usu->save();
+        
         /* Se redirije a la pagina de listar de Usuario */
         return redirect()->route('usuarios.index');
         
@@ -77,7 +81,12 @@ class usuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usu = User::find($id);
+        $cli = Cliente::pluck('nameCli', 'id');
+        
+        return view('usuarios.edit.edit')
+            ->with('usu', $usu)
+            ->with('cli', $cli);
     }
 
     /**
@@ -89,7 +98,11 @@ class usuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-     //
+       $usu = User::find($id);
+       $usu->fill($request->all());
+       $usu->save();
+
+       return redirect()->route('usuarios.index');
     }
 
     /**

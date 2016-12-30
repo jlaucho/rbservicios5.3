@@ -45,7 +45,7 @@
                       <td>{{$u->email}}</td>
                       <td>{{$u->type}}</td>
                       <td>
-                        <a href="{{route('usuarios.show',$u->id)}}" class="btn btn-link">ver</a>
+                        <a href="{{route('usuarios.edit',$u->id)}}" class="btn btn-link">ver</a>
                       </td>
                     </tr>    
                   @endforeach

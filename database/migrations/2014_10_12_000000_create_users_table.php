@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('apellido');
             $table->string('direccion');
             $table->string('cedula', 12);
+            $table->string('telefono', 15);
+            $table->string('img');
             $table->string('email')->unique();
             $table->enum('type', ['superAdmin', 'admin', 'cliente', 'usuario_cliente', 'conductor'])->default('cliente');
             $table->string('password');
