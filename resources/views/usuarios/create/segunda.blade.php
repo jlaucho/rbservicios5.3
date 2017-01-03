@@ -13,7 +13,7 @@
       </div>
       <!-- /.box-header -->
       <!-- form start -->
-      {!! Form::open(['route'=>'usuarios.store', 'method'=>'POST', 'enctype' => 'multipart/form-data']) !!}
+      {!! Form::open(['route'=>'usuarios.store', 'method'=>'POST', 'files'=>true]) !!}
         <div class="box-body">
         <div class="row">
         <!--===================================================

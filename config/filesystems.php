@@ -56,7 +56,6 @@ return [
         'img' => [
             'driver' => 'local',
             'root' => public_path('avatar'),
-            'visibility' => 'public',
         ],
 
         's3' => [
