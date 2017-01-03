@@ -5,7 +5,7 @@
 <!-- FastClick -->
 <script src="{{asset('plugins/fastclick/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
-
+<script src="{{asset('dist/js/app.min.js')}}"></script>
 <!-- Sparkline -->
 <script src="{{asset('plugins/sparkline/jquery.sparkline.min.js')}}"></script>
 <!-- jvectormap -->

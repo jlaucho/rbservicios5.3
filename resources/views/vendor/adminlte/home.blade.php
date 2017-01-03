@@ -20,5 +20,5 @@
 <!-- /.content -->
 @endsection
 @section('scriptPagina')
-	HOLA de des escript pagina
+	
 @stop
