@@ -20,8 +20,9 @@ $factory->define(App\Modelos\User::class, function (Faker\Generator $faker) {
         'direccion'	=> $faker->address,
         'cedula'	=> $faker->randomNumber($nbDigits = 8),
         'email' => $faker->unique()->safeEmail,
+        'telefono'  => '0261'.$faker->randomNumber($nbDigits = 7),
         'type'		=> $faker->randomElement(['superAdmin', 'admin', 'cliente', 'usuario_cliente', 'conductor']),
-        'password' => bcrypt('12345678'),
+        'password' => bcrypt('14460484'),
         'remember_token' => str_random(10),
     ];
 });
@@ -32,7 +33,7 @@ $factory->define(App\Modelos\Vehiculos::class, function (Faker\Generator $faker)
         'marca' => $faker->randomElement(['Chevrolet', 'Toyota', 'Hyundai', 'Ford', 'Mitsubishi']),
         'modelo'  => $faker->randomElement(['Aveo', 'Terios', 'Tucson', 'Elantra', 'Tahoe']),
         'placa' => $faker->regexify('[0-9A-Z]{7}'),
-        'responsabilidadCivil'  => $faker->dateTimeBetween($startDate = 'now', $endDate = '+ 1 years'/*, $timezone = date_default_timezone_get()*/),
+        'responsabilidadCivil'  => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
         'id_user' => function () {
             return factory(App\Modelos\User::class)->create()->id;
         }
@@ -50,7 +51,7 @@ $factory->define(App\Modelos\Cliente::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Modelos\UsuarioCliente::class, function (Faker\Generator $faker) {
+/*$factory->define(App\Modelos\UsuarioCliente::class, function (Faker\Generator $faker) {
 
     return [
         'id_user' => function () {
@@ -61,4 +62,4 @@ $factory->define(App\Modelos\UsuarioCliente::class, function (Faker\Generator $f
         },
         
     ];
-});
+});*/
