@@ -52,7 +52,6 @@ class usuarioController extends Controller
         $usu->password = bcrypt($request->password);
         /*----------  Se guarda la informacion de la foto  ----------*/
         $extension = request()->file('img')->getClientOriginalExtension();
-
         $nombre = time().'_'.$request->name.'_'.$request->apellido.'.'.$extension;
         request()->file('img')->storeAs('',$nombre,'img');
         /* Se guardan los datos en la BD */
