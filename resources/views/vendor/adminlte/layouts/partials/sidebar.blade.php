@@ -8,7 +8,7 @@
         @if (! Auth::guest())
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image" />
+                    <img src="{{ asset('avatar/'.Auth::user()->img) }}" class="img-circle" alt="70" width="70" />
                 </div>
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }}</p>
