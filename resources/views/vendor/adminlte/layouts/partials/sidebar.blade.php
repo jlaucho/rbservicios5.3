@@ -84,8 +84,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-save"></i> <span>{{ trans('adminlte_lang::message.register') }}</span></a></li>
-                <li><a href="#"><i class="fa fa-list"></i> <span>{{ trans('adminlte_lang::message.listar') }}</span></a></li>
+                <li><a href="{{route('vehiculo.create')}}"><i class="fa fa-save"></i> <span>{{ trans('adminlte_lang::message.register') }}</span></a></li>
+                <li><a href="{{route('vehiculo.index')}}"><i class="fa fa-list"></i> <span>{{ trans('adminlte_lang::message.listar') }}</span></a></li>
               </ul>
             </li>
             <!--==========================================
