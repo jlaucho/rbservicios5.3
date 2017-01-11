@@ -29,6 +29,8 @@ class AdminLTEAdmin extends Command
     public function handle()
     {
         $this->call('make:adminUserSeeder');
+        exec('composer dumpautoload 2>&1');
+        sleep(3);
         $this->call('db:seed', [
             '--class' => basename(config('AdminUserSeeder', 'AdminUserSeeder.php'), ".php")
         ]);

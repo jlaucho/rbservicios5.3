@@ -10,10 +10,10 @@ trait RuleListTrait
      * @var array
      */
     protected $clientRules = ['Accepted', 'After', 'Alpha', 'AlphaDash',
-        'AlphaNum', 'Array', 'Before', 'Between', 'Boolean', 'Confirmed', 'Date',
+        'AlphaNum', 'Array', 'Bail', 'Before', 'Between', 'Boolean', 'Confirmed', 'Date',
         'DateFormat', 'Different', 'Digits', 'DigitsBetween', 'Email', 'Image',
         'In', 'Integer', 'Ip', 'Json', 'Max', 'Mimes', 'Min', 'NotIn', 'Numeric',
-        'Regex', 'Required', 'RequiredIf', 'RequiredWith', 'RequiredWithAll',
+        'Regex', 'Required', 'RequiredIf', 'RequiredUnless', 'RequiredWith', 'RequiredWithAll',
         'RequiredWithout', 'RequiredWithoutAll', 'Same', 'Size', 'Sometimes',
         'String', 'Timezone', 'Url', ];
 
@@ -93,7 +93,7 @@ trait RuleListTrait
      * Check if rules is for input file type.
      *
      * @param $rule
-     
+     *
      * @return bool
      */
     protected function isFileRule($rule)

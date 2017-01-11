@@ -28,6 +28,14 @@ $.extend(true, laravelValidation, {
             return true;
         },
 
+        /**
+         * Bail This is the default behaivour os JSValidation.
+         * Always returns true, just lets us put sometimes in rules.*
+         * @return {boolean}
+         */
+        Bail: function() {
+            return true;
+        },
 
         /**
          * Validate the given attribute is filled if it is present.
@@ -172,11 +180,13 @@ $.extend(true, laravelValidation, {
 
             if (target!==undefined) {
                 var val=String(this.elementValue(target));
-                var data=params.slice(1);
-                if ($.inArray(val,data)!== -1) {
-                    return $.validator.methods.required.call(
-                        this, value, element, true
-                    );
+                if (typeof val !== 'undefined') {
+                    var data = params.slice(1);
+                    if ($.inArray(val, data) !== -1) {
+                        return $.validator.methods.required.call(
+                            this, value, element, true
+                        );
+                    }
                 }
             }
 
@@ -184,6 +194,32 @@ $.extend(true, laravelValidation, {
 
         },
 
+        /**
+         * Validate that an attribute exists when another
+         * attribute does not have a given value.
+         * @return {boolean}
+         */
+        RequiredUnless: function(value, element, params) {
+
+            var target=laravelValidation.helpers.dependentElement(
+                this, element, params[0]
+            );
+
+            if (target!==undefined) {
+                var val=String(this.elementValue(target));
+                if (typeof val !== 'undefined') {
+                    var data = params.slice(1);
+                    if ($.inArray(val, data) !== -1) {
+                        return true;
+                    }
+                }
+            }
+
+            return $.validator.methods.required.call(
+                this, value, element, true
+            );
+
+        },
 
         /**
          * Validate that an attribute has a matching confirmation.
@@ -271,8 +307,10 @@ $.extend(true, laravelValidation, {
          * The field under validation must be numeric and must have an exact length of value.
          */
         Digits: function(value, element, params) {
-            return ($.validator.methods.number.call(this, value, element, true)
-                && value.length===parseInt(params));
+            return (
+                $.validator.methods.number.call(this, value, element, true) &&
+                value.length === parseInt(params, 10)
+            );
         },
 
         /**
@@ -365,7 +403,10 @@ $.extend(true, laravelValidation, {
          * @return {boolean}
          */
         Mimes: function(value, element, params) {
-            var lowerParams = $.map(params, String.toLowerCase);
+            var lowerParams = $.map(params, function(item) {
+                return item.toLowerCase();
+            });
+            
             return (!window.File || !window.FileReader || !window.FileList || !window.Blob) ||
                 lowerParams.indexOf(laravelValidation.helpers.fileinfo(element).extension.toLowerCase())!==-1;
         },
@@ -425,7 +466,7 @@ $.extend(true, laravelValidation, {
             // Converting php regular expression
             var phpReg= new RegExp('^(?:\/)(.*\\\/?[^\/]*|[^\/]*)(?:\/)([gmixXsuUAJ]*)?$');
             var matches=params[0].match(phpReg);
-            if (matches==null) {
+            if (matches === null) {
                 return false;
             }
             // checking modifiers

@@ -47,5 +47,6 @@ return array(
     'Barryvdh\\DomPDF\\' => array($vendorDir . '/barryvdh/laravel-dompdf/src'),
     'App\\' => array($baseDir . '/app'),
     'Acacha\\User\\' => array($vendorDir . '/acacha/user/src'),
+    'Acacha\\Helpers\\' => array($vendorDir . '/acacha/helpers/src'),
     'Acacha\\AdminLTETemplateLaravel\\' => array($vendorDir . '/acacha/admin-lte-template-laravel/src'),
 );

@@ -14,11 +14,11 @@
   ],
   "require": {
     "php": "~5.6|~7.0",
-    "illuminate/support": "~5.0",
-    "illuminate/console": "~5.0",
-    "creativeorange/gravatar": "~1.0",
-    "acacha/user": "~0.2",
     "acacha/helpers": "~0.1",
+    "acacha/user": "~0.2",
+    "creativeorange/gravatar": "~1.0",
+    "illuminate/console": "~5.0",
+    "illuminate/support": "~5.0",
     "league/flysystem": "^1.0"
   },
   "require-dev": {

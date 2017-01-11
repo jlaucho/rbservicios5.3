@@ -42,7 +42,6 @@ class PublishAdminLTE extends Command
      *
      * @param \Illuminate\Filesystem\Filesystem $files
      *
-     * @return void
      */
     public function __construct(Filesystem $files)
     {
@@ -67,6 +66,9 @@ class PublishAdminLTE extends Command
         $this->publishTests();
         $this->publishLanguages();
         $this->publishGravatar();
+        $this->publishConfig();
+        $this->publishWebRoutes();
+        $this->publishApiRoutes();
     }
 
     /**
@@ -155,6 +157,30 @@ class PublishAdminLTE extends Command
     private function publishGravatar()
     {
         $this->install(\Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::gravatar());
+    }
+
+    /**
+     * Publish adminlte package config.
+     */
+    private function publishConfig()
+    {
+        $this->install(\Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::config());
+    }
+
+    /**
+     * Publish routes/web.php file.
+     */
+    private function publishWebRoutes()
+    {
+        $this->install(\Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::webroutes());
+    }
+
+    /**
+     * Publish routes/api.php file.
+     */
+    private function publishApiRoutes()
+    {
+        $this->install(\Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::apiroutes());
     }
 
     /**

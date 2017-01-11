@@ -48,7 +48,7 @@ return [
     'level'                   => 'Nivel',
     'here'                    => 'Aquí',
     'descriptionpackage'      => 'Un laravel 5 paquete que cambia de forma predeterminada Laravel scaffolding/boilerplate a la plantilla AdminLTE',
-    'createdby'               => 'Sistema Creado por',
+    'createdby'               => 'Creado por',
     'seecode'                 => 'Ver código en',
     'online'                  => 'En Línea',
     'home'                    => 'Inicio',
@@ -66,9 +66,9 @@ return [
     'checked'                 => 'comprobado',
     'informationsettings'     => 'Parte de la información acerca de esta opción de configuración generales',
     'togglenav'               => 'Activa la navegación',
-    'tabmessages'             => 'Lista de mensajes',
+    'tabmessages'             => 'Usted tiene 4 mensajes',
     'supteam'                 => 'Equipo de Apoyo',
-    'awesometheme'            => '¿Por qué no comprar?',
+    'awesometheme'            => '¿Por qué no comprar un nuevo tema impresionante?',
     'allmessages'             => 'Ver todos los mensajes',
     'notifications'           => 'Tiene 10 notificaciones',
     'newmembers'              => '5 nuevos miembros se unieron hoy',
@@ -125,6 +125,7 @@ return [
     'password'                => 'Contraseña',
     'retrypepassword'         => 'Vuelva a escribir la contraseña',
     'fullname'                => 'Nombre completo',
+
     /*=======================================
     =            Nuevos mensajes            =
     =======================================*/
@@ -157,11 +158,4 @@ return [
     'footerSistem'            => 'Sistema creado para la empresa Rangel Briceño Servicios C.A',
     'de'                      => 'de',
     'edit'                  => 'Editar',
-
-
-
-    
-    
-    /*=====  End of Nuevos mensajes  ======*/
-    
 ];

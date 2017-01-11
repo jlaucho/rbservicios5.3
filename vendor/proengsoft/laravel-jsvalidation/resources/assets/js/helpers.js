@@ -78,16 +78,27 @@ $.extend(true, laravelValidation, {
             }
 
             var validator = $.data(element.form, "validator");
-            var objRules = validator.settings.rules[element.name];
-            if ('laravelValidation' in objRules) {
-                var _rules=objRules.laravelValidation;
-                for (var i = 0; i < _rules.length; i++) {
-                    if ($.inArray(_rules[i][0],rules) !== -1) {
-                        found = true;
-                        break;
+            var listRules = [];
+            var cache = validator.arrayRulesCache;
+            if (element.name in cache) {
+                $.each(cache[element.name], function (index, arrayRule) {
+                    listRules.push(arrayRule);
+                });
+            }
+            if (element.name in validator.settings.rules) {
+                listRules.push(validator.settings.rules[element.name]);
+            }
+            $.each(listRules, function(index,objRules){
+                if ('laravelValidation' in objRules) {
+                    var _rules=objRules.laravelValidation;
+                    for (var i = 0; i < _rules.length; i++) {
+                        if ($.inArray(_rules[i][0],rules) !== -1) {
+                            found = true;
+                            return false;
+                        }
                     }
                 }
-            }
+            });
 
             return found;
         },
@@ -119,7 +130,7 @@ $.extend(true, laravelValidation, {
             } else if ($.isArray(value)) {
                 return parseFloat(value.length);
             } else if (element.type === 'file') {
-                return parseFloat(Math.ceil(this.fileinfo(element).size));
+                return parseFloat(Math.floor(this.fileinfo(element).size));
             }
 
             return parseFloat(this.strlen(value));
@@ -233,6 +244,14 @@ $.extend(true, laravelValidation, {
         },
 
 
+        /**
+         * Makes element dependant from other
+         *
+         * @param validator
+         * @param element
+         * @param name
+         * @returns {*}
+         */
         dependentElement: function(validator, element, name) {
 
             var el=validator.findByName(name);
@@ -256,9 +275,33 @@ $.extend(true, laravelValidation, {
             }
 
             return el[0];
+        },
+
+        /**
+         * Parses error Ajax response and gets the message
+         *
+         * @param response
+         * @returns {string[]}
+         */
+        parseErrorResponse: function (response) {
+            var newResponse = ['Whoops, looks like something went wrong.'];
+            if ('responseText' in response) {
+                var errorMsg = response.responseText.match(/<h1\s*>(.*)<\/h1\s*>/i);
+                if ($.isArray(errorMsg)) {
+                    newResponse = [errorMsg[1]];
+                }
+            }
+            return newResponse;
+        },
+
+        /**
+         * Scapes string to use as Regular Expression
+         * @param str
+         * @returns string
+         */
+        escapeRegExp: function escapeRegExp(str) {
+            return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
         }
-
-
 
     }
 });
