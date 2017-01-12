@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Modelos\Vehiculos;
 use App\Modelos\User;
+use App\Modelos\Vehiculos;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class vehiculoController extends Controller
 {
@@ -26,9 +27,10 @@ class vehiculoController extends Controller
      */
     public function create()
     {
-        $con = User::select('*')
+        $con = User::select(DB::raw('CONCAT(name," ",apellido) AS fullname'))
             ->where('type','conductor')
-            ->pluck('name','id');
+            ->pluck('fullname','id');
+            dd($con);
         return view('vehiculo.create.create')
             ->with('con',$con);
     }
