@@ -16,6 +16,7 @@ class CreateVehiculosTable extends Migration
             $table->increments('id');
             $table->string('marca', 30);
             $table->string('modelo', 30);
+            $table->string('anio', 4);
             $table->string('placa', 14);
             $table->date('responsabilidadCivil');
             $table->integer('id_user')->unsigned();

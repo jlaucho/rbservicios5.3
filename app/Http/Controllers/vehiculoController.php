@@ -7,7 +7,7 @@ use App\Modelos\User;
 use App\Modelos\Vehiculos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 class vehiculoController extends Controller
 {
     /**
@@ -17,7 +17,14 @@ class vehiculoController extends Controller
      */
     public function index()
     {
-        //
+        $vehiculo = Vehiculos::all();
+
+        $vehiculo->each(function($vehiculo){
+            $vehiculo->conductor;
+        });
+
+        return view('vehiculo.index.index')
+            ->with('vehiculo', $vehiculo);
     }
 
     /**
@@ -27,10 +34,9 @@ class vehiculoController extends Controller
      */
     public function create()
     {
-        $con = User::select(DB::raw('CONCAT(name," ",apellido) AS fullname'))
+        $con = User::select(DB::raw('CONCAT(name," ",apellido) AS fullname, id'))
             ->where('type','conductor')
             ->pluck('fullname','id');
-            dd($con);
         return view('vehiculo.create.create')
             ->with('con',$con);
     }
@@ -43,7 +49,13 @@ class vehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $ve = new Vehiculos();
+        $ve->fill($request->all());
+        $ve->responsabilidadCivil = new Carbon($request->responsablilidadCivil);
+
+        $ve->save();
+
+        return redirect()->route('vehiculo.index');
     }
 
     /**

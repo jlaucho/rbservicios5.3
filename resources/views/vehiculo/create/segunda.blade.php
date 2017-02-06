@@ -33,7 +33,14 @@
                 {!! Form::label('modelo', 'Modelo', []) !!}
                 {!! Form::text('modelo', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el modelo']) !!}
               </div>
+
+              <!-- Anio del Vehiculo -->
               
+              <div class="form-group">
+                {!! Form::label('anio', 'A&ntilde;o', []) !!}
+                {!! Form::select('anio', ([]), $defaultKey, []) !!}
+              </div>
+
             </div>
             <!--=================================================
             =            Lado derecho del formulario            =

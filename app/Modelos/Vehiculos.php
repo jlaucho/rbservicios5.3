@@ -8,7 +8,7 @@ class Vehiculos extends Model
 {
     protected $table	='vehiculos';
     protected $fillable	=[
-    	'marca','modelo','placa','responsablilidadCivil','id_user'
+    	'marca','modelo','placa','responsabilidadCivil','anio','tipo','id_user'
     ];
 
     public function conductor()
