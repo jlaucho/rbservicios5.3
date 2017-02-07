@@ -15,7 +15,7 @@
   
   <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Clientes registrados en el sistema</h3>
+              <h3 class="box-title">Vehiculos registrados en el sistema</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -23,29 +23,30 @@
                 <thead>
                   <tr>
                     <th>Num</th>
-                    <th>Nombre</th>
-                    <th>RIF</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>
-                    <th>Modificar</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>A&ntilde;o</th>
+                    <th>Cunductor</th>
+                    <th>Tipo</th>
                   </tr>
                 </thead>
                 <tbody>
                 @php 
                 $count = 0;
                 @endphp
-                  @foreach ($cli as $c)
+                  @foreach ($vehiculo as $ve)
                     @php 
                     $count++;
                     @endphp
                     <tr>
                       <td>{{$count}}</td>
-                      <td>{{$c->nameCli}}</td>
-                      <td>{{$c->RIF_CedulaCli}}</td>
-                      <td>{{$c->direccionCli}}</td>
-                      <td>{{$c->telefonoCli}}</td>
+                      <td>{{$ve->marca}}</td>
+                      <td>{{$ve->modelo}}</td>
+                      <td>{{$ve->anio}}</td>
+                      <td>{{$ve->conductor->name}} {{$ve->conductor->apellido}}</td>
+                      <td>{{$ve->tipo}}</td>
                       <td>
-                        <a href="{{route('cliente.edit',$c->id)}}" class="btn btn-link">ver</a>
+                        <a href="{{route('vehiculo.edit',$ve->id)}}" class="btn btn-link">ver</a>
                       </td>
                     </tr>    
                   @endforeach

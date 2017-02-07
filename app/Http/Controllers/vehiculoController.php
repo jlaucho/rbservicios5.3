@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Modelos\Vehiculos;
 use App\Modelos\User;
-
+use App\Modelos\Vehiculos;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 class vehiculoController extends Controller
 {
     /**
@@ -16,7 +17,14 @@ class vehiculoController extends Controller
      */
     public function index()
     {
-        //
+        $vehiculo = Vehiculos::all();
+
+        $vehiculo->each(function($vehiculo){
+            $vehiculo->conductor;
+        });
+
+        return view('vehiculo.index.index')
+            ->with('vehiculo', $vehiculo);
     }
 
     /**
@@ -26,9 +34,9 @@ class vehiculoController extends Controller
      */
     public function create()
     {
-        $con = User::select('*')
+        $con = User::select(DB::raw('CONCAT(name," ",apellido) AS fullname, id'))
             ->where('type','conductor')
-            ->pluck('name','id');
+            ->pluck('fullname','id');
         return view('vehiculo.create.create')
             ->with('con',$con);
     }
@@ -41,7 +49,13 @@ class vehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $ve = new Vehiculos();
+        $ve->fill($request->all());
+        $ve->responsabilidadCivil = new Carbon($request->responsablilidadCivil);
+
+        $ve->save();
+
+        return redirect()->route('vehiculo.index');
     }
 
     /**
@@ -63,7 +77,18 @@ class vehiculoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ve = Vehiculos::find($id);
+        $fecha = new Carbon($ve->responsabilidadCivil);
+        $fecha = $fecha->format('d/m/Y');
+        $ve->responsabilidadCivil = $fecha;
+
+        $con = User::select(DB::raw('CONCAT(name," ",apellido) AS fullname, id'))
+            ->where('type','conductor')
+            ->pluck('fullname','id');
+        
+        return view('vehiculo.edit.edit')
+            ->with('ve', $ve)
+            ->with('con',$con);
     }
 
     /**
@@ -75,7 +100,12 @@ class vehiculoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ve = Vehiculos::find($id);
+        $ve->fill($request->all());
+        $ve->responsabilidadCivil = new Carbon($request->responsabilidadCivil);
+
+        $ve->save();
+        return redirect()->route('vehiculo.index');
     }
 
     /**
