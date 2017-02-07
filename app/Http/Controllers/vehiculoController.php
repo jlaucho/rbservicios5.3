@@ -77,7 +77,18 @@ class vehiculoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ve = Vehiculos::find($id);
+        $fecha = new Carbon($ve->responsabilidadCivil);
+        $fecha = $fecha->format('d/m/Y');
+        $ve->responsabilidadCivil = $fecha;
+
+        $con = User::select(DB::raw('CONCAT(name," ",apellido) AS fullname, id'))
+            ->where('type','conductor')
+            ->pluck('fullname','id');
+        
+        return view('vehiculo.edit.edit')
+            ->with('ve', $ve)
+            ->with('con',$con);
     }
 
     /**
@@ -89,7 +100,12 @@ class vehiculoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ve = Vehiculos::find($id);
+        $ve->fill($request->all());
+        $ve->responsabilidadCivil = new Carbon($request->responsabilidadCivil);
+
+        $ve->save();
+        return redirect()->route('vehiculo.index');
     }
 
     /**

@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="box-body collapse">
-          Para realizar la actualizacion de datos, debe verificar la informacion, actualizarla en los campos correspondientes u luego hacer click en el boton de actualizar ubicado en la parte inferior del formulario.
+          Para registrar un vehiculo asegurese que el conductor se encuentre previamente registrado en el sistema, luego de rellenar todas las casillas, verifique los datos y pulse registrar.
         </div>
         <!-- /.box-body -->
         <div class="box-footer collapse">
