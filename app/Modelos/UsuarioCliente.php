@@ -19,7 +19,7 @@ class UsuarioCliente extends Model
     {
     	return $this->hasMany('App\Modelos\Ticket','id_usuario','id');
     }
-    public function usuario ()
+    public function usuario()
     {
         return $this->belongsTo('App\Modelos\User','id_User','id');
     }

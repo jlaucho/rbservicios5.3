@@ -119,8 +119,8 @@
           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
           <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <div id='displayEmpresa' style='visibility: hidden'>
-            {!! Form::label('Cliente', 'Seleccione el Cliente', []) !!}
-            {!! Form::select('Cliente', $cli, null, ['class'=>'form-control','required','placeholder'=>'Seleccione el Cliente']) !!}
+            {!! Form::label('id_cliente', 'Seleccione el Cliente', []) !!}
+            {!! Form::select('id_cliente', $cli, null, ['class'=>'form-control','required','placeholder'=>'Seleccione el Cliente']) !!}
             </div>
           </div>
           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>

@@ -158,4 +158,5 @@ return [
     'footerSistem'            => 'Sistema creado para la empresa Rangel Briceño Servicios C.A',
     'de'                      => 'de',
     'edit'                  => 'Editar',
+    'ticket'                => 'Tickets',
 ];

@@ -16,9 +16,10 @@ class CreateTicketServicio extends Migration
             $table->increments('id');
             $table->string('numTicket',10);
             $table->date('fechaServicio');
-            $table->enum('encomienda',['SI','NO']);
+            $table->string('horaServicio', 10);
             $table->enum('odc',['SI','NO']);
-            $table->integer('idUser')->comments('Este es el ID de el usuario que creo el Ticket');
+            $table->text('comentarioServicio');
+            $table->integer('idUser')->unsigned()->comments('Este es el ID de el usuario que creo el Ticket');
             $table->integer('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id')->on('usuarios_cliente')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

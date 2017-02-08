@@ -100,7 +100,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> <span>{{ trans('adminlte_lang::message.ticketGenerar') }}</span></a></li>
+                <li><a href="{{route('tickets.create')}}"><i class="fa fa-circle-o"></i> <span>{{ trans('adminlte_lang::message.ticketGenerar') }}</span></a></li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> <span>{{ trans('adminlte_lang::message.ticketCerrar') }}</span></a></li>
               </ul>
             </li>

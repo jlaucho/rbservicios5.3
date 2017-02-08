@@ -17,6 +17,7 @@ class Recorridos extends Migration
             $table->string('origen',60);
             $table->string('destino', 60);
             $table->integer('Km');
+            $table->enum('encomienda',['SI','NO']);
             $table->enum('bono_nocturno', ['SI', 'NO'])->default('NO');
             $table->enum('vacio',['SI','NO'])->default('NO');
             $table->integer('correo_id')->unsigned();

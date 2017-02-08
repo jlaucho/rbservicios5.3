@@ -15,7 +15,7 @@
   
   <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Usuarios registrados en el sistema</h3>
+              <h3 class="box-title">Vehiculos registrados en el sistema</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -23,47 +23,34 @@
                 <thead>
                   <tr>
                     <th>Num</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>E-mail</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>A&ntilde;o</th>
+                    <th>Cunductor</th>
                     <th>Tipo</th>
-                    <th>Modificar</th>
                   </tr>
                 </thead>
                 <tbody>
                 @php 
                 $count = 0;
                 @endphp
-                  @foreach ($usu as $u)
+                  @foreach ($vehiculo as $ve)
                     @php 
                     $count++;
                     @endphp
                     <tr>
                       <td>{{$count}}</td>
-                      <td>{{$u->name}}</td>
-                      <td>{{$u->apellido}}</td>
-                      <td>{{$u->email}}</td>
-                      <td>@if ($u->type == 'usuario_cliente')
-                            Usuario
-                          @else
-                            {{$u->type}}
-                          @endif
-                      </td>
+                      <td>{{$ve->marca}}</td>
+                      <td>{{$ve->modelo}}</td>
+                      <td>{{$ve->anio}}</td>
+                      <td>{{$ve->conductor->name}} {{$ve->conductor->apellido}}</td>
+                      <td>{{$ve->tipo}}</td>
                       <td>
-                        <a href="{{route('usuarios.edit',$u->id)}}" class="btn btn-link">ver</a>
+                        <a href="{{route('vehiculo.edit',$ve->id)}}" class="btn btn-link">ver</a>
                       </td>
                     </tr>    
                   @endforeach
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <th>Num</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>E-mail</th>
-                    <th>Tipo</th>
-                  </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->

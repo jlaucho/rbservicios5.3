@@ -18,6 +18,7 @@ class CreateVehiculosTable extends Migration
             $table->string('modelo', 30);
             $table->string('anio', 4);
             $table->string('placa', 14);
+            $table->enum('tipo',['1','2','3'])->default('1');
             $table->date('responsabilidadCivil');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

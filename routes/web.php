@@ -42,6 +42,16 @@ Route::resource('cliente', 'clienteController');
 
 Route::resource('vehiculo', 'vehiculoController');
 
+/*======================================================
+=            Seccion de Ticket de servicios            =
+======================================================*/
+
+Route::resource('tickets', 'ticketController');
+Route::post('ticket/usuario',[
+		'uses'	=> 'ticketController@cambiarUsuario',
+		'as'	=> 'tickets.cambiar'
+	]);
+
 
 
 
