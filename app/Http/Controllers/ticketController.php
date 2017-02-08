@@ -8,6 +8,8 @@ use App\Modelos\User;
 use App\Modelos\Cliente;
 use DB;
 use Illuminate\Http\JsonResponse;
+use App\Modelos\Ticket;
+use Carbon\Carbon;
 
 class ticketController extends Controller
 {
@@ -46,7 +48,13 @@ class ticketController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $ticket = new Ticket();
+        $ticket->fill($request->all());
+        $ticket->fechaServicio = new Carbon($request->fechaServicio);
+        $ticket->numTicket = time();
+        $ticket->idUser = \Auth::User()->id;
+        
+        dd($ticket->numTicket);
     }
 
     /**

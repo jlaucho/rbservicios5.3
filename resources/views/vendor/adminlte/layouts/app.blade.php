@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 @section('htmlheader')
     @include('adminlte::layouts.partials.htmlheader')
-    @yield('linkStyles')
+    
 @show
 <!--
 BODY TAG OPTIONS:

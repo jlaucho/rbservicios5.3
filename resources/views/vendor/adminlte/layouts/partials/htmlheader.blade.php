@@ -33,4 +33,5 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    @yield('linkStyles')
 </head>

@@ -39,12 +39,30 @@
               
               <div class="form-group">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                  {!! Form::label('fechaServicio', 'Fecha del servicio', []) !!}
-                  {!! Form::text('fechaServicio', null, ['class'=>'form-control', 'placeholder'=>'Ingrese la Fecha']) !!}
+                  <div class="form-group">
+                  {!! Form::label('fechaServicio', 'Fecha de Servicio', []) !!}
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  {!! Form::text('fechaServicio', null, ['class'=>'form-control pull-rigth']) !!}
                 </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <!-- /.input group -->
+              </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><div class="form-group">
                   {!! Form::label('horaServicio', 'Hora del servicio', []) !!}
-                  {!! Form::text('horaServicio', null, ['class'=>'form-control', 'placeholder'=>'Ingrese la Hora']) !!}
+
+                  <div class="bootstrap-timepicker">
+                  <div class="input-group">
+                  {!! Form::text('horaServicio', null, ['class'=>'form-control timepicker']) !!}
+                    <div class="input-group-addon">
+                      <i class="fa fa-clock-o"></i>
+                    </div>
+                  </div>
+                  <!-- /.input group -->
+                </div>
+                </div>
                 </div>
               </div>
 
@@ -62,7 +80,7 @@
               </div>
               <!-- Descripcion del servicio -->
               <div class="form-group">
-                {!! Form::label('comentarioServicio', 'Responsabilidad Civil', []) !!}
+                {!! Form::label('comentarioServicio', 'Comentario', []) !!}
                 {!! Form::textarea('comentarioServicio', null, ['class'=>'form-control','placeholder'=>'Escriba su comentario referente al traslado...','style'=>'resize:none', 'rows'=>'5']) !!}
               </div>
             </div>

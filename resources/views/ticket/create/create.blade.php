@@ -2,6 +2,8 @@
 
 @section('linkStyles')
 	<link rel="stylesheet" type="text/css" href="{{asset('plugins/chosen/chosen.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('plugins/datepicker/datepicker3.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('plugins/timepicker/bootstrap-timepicker.min.css')}}">
 @stop
 
 @section('htmlheader_title')
@@ -31,6 +33,7 @@
 @section('scriptPagina')
 	<script src="{{asset('plugins/datepicker/bootstrap-datepicker.js')}}"></script>
 	<script src="{{asset('plugins/chosen/chosen.jquery.js')}}" type="text/javascript"></script>
+	<script type="text/javascript" src="{{asset('plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
     <script type="text/javascript">
     	$('#responsabilidadCivil').datepicker({
       autoclose: true
@@ -65,7 +68,13 @@
 				}
 			})
 		});
+	});
+	$(document).ready(function () {
+		$('#fechaServicio').datepicker();
 	})
+	$("#horaServicio").timepicker({
+      showInputs: false
+    })
     </script>
 
 @stop

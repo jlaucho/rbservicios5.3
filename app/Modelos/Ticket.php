@@ -8,7 +8,7 @@ class Ticket extends Model
 {
     protected $table	='ticket_servicio';
     protected $fillable	=[
-    	'numTicket','fechaServicio','horaServicio','odc','idUser','id_usuario','created_at'
+    	'numTicket','fechaServicio','horaServicio','odc','idUser','comentarioServicio','id_usuario','created_at'
     ];
 
     public function usuario()

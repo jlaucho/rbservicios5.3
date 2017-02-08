@@ -2,6 +2,7 @@
 
 @section('linkStyles')
 	<link rel="stylesheet" type="text/css" href="{{asset('plugins/chosen/chosen.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('plugins/datepicker/datepicker3.css')}}">
 @stop
 
 @section('htmlheader_title')
