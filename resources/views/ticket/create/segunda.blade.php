@@ -81,7 +81,7 @@
               <!-- Descripcion del servicio -->
               <div class="form-group">
                 {!! Form::label('comentarioServicio', 'Comentario', []) !!}
-                {!! Form::textarea('comentarioServicio', null, ['class'=>'form-control','placeholder'=>'Escriba su comentario referente al traslado...','style'=>'resize:none', 'rows'=>'5']) !!}
+                {!! Form::textarea('comentarioServicio', null, ['class'=>'form-control','placeholder'=>'Escriba su comentario referente al traslado...','style'=>'resize:none', 'rows'=>'4']) !!}
               </div>
             </div>
         </div>
