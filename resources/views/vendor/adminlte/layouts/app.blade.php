@@ -46,6 +46,20 @@ desired effect
         <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
+            @if (count($errors)>0)
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{$error}}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
+          @if (session('menssage'))
+            <div class="alert alert-success">
+                {{ session('menssage') }}
+            </div>
+            @endif
             @yield('main-content')
            
         </section><!-- /.content -->

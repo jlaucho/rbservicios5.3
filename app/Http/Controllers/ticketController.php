@@ -10,6 +10,7 @@ use DB;
 use Illuminate\Http\JsonResponse;
 use App\Modelos\Ticket;
 use Carbon\Carbon;
+use App\Http\Requests\ticketRequest;
 
 class ticketController extends Controller
 {
@@ -20,7 +21,9 @@ class ticketController extends Controller
      */
     public function index()
     {
-        //
+        $ticket = Ticket::all();
+        return view('ticket.index.index')
+            ->with('ticket', $ticket);
     }
 
     /**
@@ -46,15 +49,19 @@ class ticketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ticketRequest $request)
     {
         $ticket = new Ticket();
         $ticket->fill($request->all());
         $ticket->fechaServicio = new Carbon($request->fechaServicio);
-        $ticket->numTicket = time();
+        $ticket->numTicket = time().''.\Auth::User()->id;
+        $ticket->numTicket = substr($ticket->numTicket, 1);
         $ticket->idUser = \Auth::User()->id;
         
-        dd($ticket->numTicket);
+        $ticket->save();
+
+        return redirect()->route('tickets.index')
+            ->with('menssage', 'Se ha guardado exitosamente el Ticket');
     }
 
     /**
@@ -76,7 +83,8 @@ class ticketController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ticket = Ticket::find($id);
+        dd($ticket);
     }
 
     /**
@@ -103,7 +111,7 @@ class ticketController extends Controller
     }
     public function cambiarUsuario(Request $request)
     {   
-        $usuario = User::select(DB::raw('CONCAT(name," ",apellido) AS fullname, users.id'))
+        $usuario = User::select(DB::raw('CONCAT(name," ",apellido) AS fullname, usuarios_cliente.id'))
             ->join('usuarios_cliente','users.id','=','usuarios_cliente.id_User')
             ->where('usuarios_cliente.id_Cliente',$request->dato)
             ->get();
