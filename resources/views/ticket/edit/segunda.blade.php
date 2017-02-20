@@ -9,11 +9,12 @@
   
   <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title">Edicion de {{ trans('adminlte_lang::message.vehiculos') }}</h3>
+        <h3 class="box-title">Registro de {{ trans('adminlte_lang::message.ticket') }}</h3>
       </div>
       <!-- /.box-header -->
       <!-- form start -->
-      {!! Form::open(['route'=>['vehiculo.update',$ve], 'method'=>'PUT']) !!}
+      {!! Form::open(['route'=>'tickets.store', 'method'=>'POST']) !!}
+      {!! Form::hidden('_token', csrf_token(), ['id'=>'token']) !!}
         <div class="box-body">
         <div class="row">
         <!--===================================================
@@ -21,25 +22,48 @@
         ====================================================-->
         
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <!-- Marca del vehiculo -->
+              <!-- Cliente -->
               
               <div class="form-group">
-                {!! Form::label('marca', 'Marca', []) !!}
-                {!! Form::text('marca', $ve->marca, ['class'=>'form-control', 'placeholder'=>'Ingrese la Marca']) !!}
+                {!! Form::label('empresa', 'Seleccione el Cliente', []) !!}
+                {!! Form::select('empresa', $cliente, null, ['class'=>'form-control', 'placeholder'=>'Seleccione el cliente']) !!}
               </div>
-              <!-- Modelo del vehiculo -->
+              <!-- Usuario -->
               
               <div class="form-group">
-                {!! Form::label('modelo', 'Modelo', []) !!}
-                {!! Form::text('modelo', $ve->modelo, ['class'=>'form-control', 'placeholder'=>'Ingrese el modelo']) !!}
+                {!! Form::label('id_usuario', 'Seleccione el Usuario', []) !!}
+                {!! Form::select('id_usuario', ([''=>'Seleccione el usuario']), $ticket->id_usuario, ['class'=>'form-control']) !!}
               </div>
 
-              <!-- Anio del Vehiculo -->
+              <!-- Fecha y hora -->
               
               <div class="form-group">
-                {!! Form::label('anio', 'A&ntilde;o', []) !!}
-                {!! Form::select('anio', (['2002'=>'2002','2003'=>'2003','2004'=>'2004','2005'=>'2005','2006'=>'2006','2007'=>'2007','2008'=>'2008','2009'=>'2009','2010'=>'2010','2011'=>'2011','2012'=>'2012','2013'=>'2013','2014'=>'2014','2015'=>'2015','2016'=>'2016','2017'=>'2017']), $ve->anio, ['class'=>'form-control', 'placeholder'=>'Seleccione el Año']) !!}
-                
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                  {!! Form::label('fechaServicio', 'Fecha de Servicio', []) !!}
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  {!! Form::text('fechaServicio', $ticket->fechaServicio, ['class'=>'form-control pull-rigth']) !!}
+                </div>
+                <!-- /.input group -->
+              </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><div class="form-group">
+                  {!! Form::label('horaServicio', 'Hora del servicio', []) !!}
+
+                  <div class="bootstrap-timepicker">
+                  <div class="input-group">
+                  {!! Form::text('horaServicio', $ticket->horaServicio, ['class'=>'form-control timepicker']) !!}
+                    <div class="input-group-addon">
+                      <i class="fa fa-clock-o"></i>
+                    </div>
+                  </div>
+                  <!-- /.input group -->
+                </div>
+                </div>
+                </div>
               </div>
 
             </div>
@@ -48,44 +72,26 @@
             ==================================================-->
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
               
-              <!-- Telefono de cliente -->
+              <!-- Utiliza ODC para facturar -->
               
               <div class="form-group">
-                {!! Form::label('placa', 'Placa', []) !!}
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-phone"></i>
-                  </div>
-                {!! Form::text('placa', $ve->placa, ['class'=>'form-control pull-right', 'placeholder'=>'Ingrese la placa']) !!}
-                </div>
+                {!! Form::label('odc', 'Requiere ODC', []) !!}
+                {!! Form::select('odc', (['SI'=>'SI', 'NO'=>'NO']), $ticket->odc, ['class'=>'form-control', 'placeholder'=>'Seleccione']) !!}
               </div>
-              <!-- Descripcion del cliente -->
+              <!-- Descripcion del servicio -->
               <div class="form-group">
-                {!! Form::label('responsabilidadCivil', 'Responsabilidad Civil', []) !!}
-                {!! Form::text('responsabilidadCivil', $ve->responsabilidadCivil, ['class'=>'form-control','style'=>'resize:none', 'rows'=>'4','placeholder'=>'Ingrese la Fecha de Expiracion', 'id'=>'responsabilidadCivil']) !!}
-              </div>
-              <div class="form-group">
-                {!! Form::label('tipo', 'Tipo', []) !!}
-                {!! Form::select('tipo', (['1'=>'1','2'=>'2']), $ve->tipo, ['class'=>'form-control', 'placeholder'=>'Seleccione el Tipo']) !!}
+                {!! Form::label('comentarioServicio', 'Comentario', []) !!}
+                {!! Form::textarea('comentarioServicio', $ticket->comentarioServicio, ['class'=>'form-control','placeholder'=>'Escriba su comentario referente al traslado...','style'=>'resize:none', 'rows'=>'4']) !!}
               </div>
             </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          {!! Form::label('id_user', 'Seleccione el Conductor', []) !!}
-          {!! Form::select('id_user', $con, $ve->id_user, ['class'=>'form-control', 'placeholder'=>'Seleccione el conductor']) !!}
-          </div>
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-            
         </div>
         
         </div>
         <!-- Parte baja de formulario donde estan los botones -->
         
         <div class="box-footer">
-          {!! Form::submit('Actualizar', ['class'=>'btn btn-xs btn-primary']) !!}
-          <a href="{{route('vehiculo.index')}}" class='btn btn-link pull-right'>Volver</a>
+          {!! Form::submit('Registrar Ticket', ['class'=>'btn btn-xs btn-primary']) !!}
+          {!! Form::reset('Limpiar', ['class'=>'btn btn-xs btn-warning']) !!}
         </div>
           <!--=====================================
           =            Fin de Formulario            =

@@ -84,7 +84,11 @@ class ticketController extends Controller
     public function edit($id)
     {
         $ticket = Ticket::find($id);
-        dd($ticket);
+        $cliente = Cliente::all()->pluck('nameCli', 'id');
+        
+        return view('ticket.edit.edit')
+            ->with('ticket', $ticket)
+            ->with('cliente', $cliente);
     }
 
     /**
@@ -116,5 +120,15 @@ class ticketController extends Controller
             ->where('usuarios_cliente.id_Cliente',$request->dato)
             ->get();
         return response()->json($usuario);
+    }
+    public function cerrar($id)
+    {
+        $ticket = Ticket::find($id);
+        dd('Estamos en cerrar');
+        $cliente = Cliente::all()->pluck('nameCli', 'id');
+        
+        return view('ticket.edit.edit')
+            ->with('ticket', $ticket)
+            ->with('cliente', $cliente);
     }
 }

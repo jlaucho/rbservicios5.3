@@ -35,7 +35,7 @@ class vehiculoController extends Controller
     public function create()
     {
         $con = User::select(DB::raw('CONCAT(name," ",apellido) AS fullname, id'))
-            ->where('type','conductor')
+            ->where('type','!=','usuario_cliente')
             ->pluck('fullname','id');
         return view('vehiculo.create.create')
             ->with('con',$con);

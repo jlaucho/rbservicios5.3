@@ -28,6 +28,7 @@
                     <th>Hora</th>
                     <th>ODC</th>
                     <th>Usuario</th>
+                    <th>Estatus</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,6 +46,13 @@
                       <td>{{$t->horaServicio}}</td>
                       <td>{{$t->odc}}</td>
                       <td>{{$t->id_usuario}}</td>
+                      <td>
+                        @if ($t->estatus == 'Abierto')
+                          <a href="{{route('tickets.cerrar', $t->id)}}" style="color: green;">Abierto</a>
+                        @else
+                          Cerrado
+                        @endif
+                      </td>
                       <td>
                         <a href="{{route('tickets.edit',$t->id)}}" class="btn btn-link">ver</a>
                       </td>

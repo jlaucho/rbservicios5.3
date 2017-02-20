@@ -51,6 +51,10 @@ Route::post('ticket/usuario',[
 		'uses'	=> 'ticketController@cambiarUsuario',
 		'as'	=> 'tickets.cambiar'
 	]);
+Route::get('users/{id}/cerrar', [
+		'uses'	=>'ticketController@cerrar',
+		'as'	=>'tickets.cerrar'
+	]);
 
 
 
