@@ -23,30 +23,30 @@
                 <thead>
                   <tr>
                     <th>Num</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>A&ntilde;o</th>
-                    <th>Cunductor</th>
-                    <th>Tipo</th>
+                    <th>Ticket</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>ODC</th>
+                    <th>Usuario</th>
                   </tr>
                 </thead>
                 <tbody>
                 @php 
                 $count = 0;
                 @endphp
-                  @foreach ($vehiculo as $ve)
+                  @foreach ($ticket as $t)
                     @php 
                     $count++;
                     @endphp
                     <tr>
                       <td>{{$count}}</td>
-                      <td>{{$ve->marca}}</td>
-                      <td>{{$ve->modelo}}</td>
-                      <td>{{$ve->anio}}</td>
-                      <td>{{$ve->conductor->name}} {{$ve->conductor->apellido}}</td>
-                      <td>{{$ve->tipo}}</td>
+                      <td>{{$t->numTicket}}</td>
+                      <td>{{$t->fechaServicio}}</td>
+                      <td>{{$t->horaServicio}}</td>
+                      <td>{{$t->odc}}</td>
+                      <td>{{$t->id_usuario}}</td>
                       <td>
-                        <a href="{{route('vehiculo.edit',$ve->id)}}" class="btn btn-link">ver</a>
+                        <a href="{{route('tickets.edit',$t->id)}}" class="btn btn-link">ver</a>
                       </td>
                     </tr>    
                   @endforeach
