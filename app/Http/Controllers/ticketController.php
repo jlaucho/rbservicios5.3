@@ -21,7 +21,10 @@ class ticketController extends Controller
      */
     public function index()
     {
-        $ticket = Ticket::all();
+        $ticket = Ticket::orderBy('fechaServicio', 'DESC')->get();
+        $ticket->each(function($ticket){
+            $ticket->usuario->usuario;
+        });
         return view('ticket.index.index')
             ->with('ticket', $ticket);
     }
@@ -124,11 +127,11 @@ class ticketController extends Controller
     public function cerrar($id)
     {
         $ticket = Ticket::find($id);
-        dd('Estamos en cerrar');
-        $cliente = Cliente::all()->pluck('nameCli', 'id');
+        $ticket->usuario->cliente;
+        $ticket->usuario->usuario;
+        //dd($ticket);
         
-        return view('ticket.edit.edit')
-            ->with('ticket', $ticket)
-            ->with('cliente', $cliente);
+        return view('ticket.cerrar.cerrar')
+            ->with('ticket', $ticket);
     }
 }

@@ -159,4 +159,7 @@ return [
     'de'                      => 'de',
     'edit'                  => 'Editar',
     'ticket'                => 'Tickets',
+    'servicio'              => 'Servicio',
+    'cierre'                => 'Cierre',
+
 ];

@@ -45,7 +45,7 @@
                       <td>{{$t->fechaServicio}}</td>
                       <td>{{$t->horaServicio}}</td>
                       <td>{{$t->odc}}</td>
-                      <td>{{$t->id_usuario}}</td>
+                      <td>{{$t->usuario->usuario->name}} {{$t->usuario->usuario->apellido}}</td>
                       <td>
                         @if ($t->estatus == 'Abierto')
                           <a href="{{route('tickets.cerrar', $t->id)}}" style="color: green;">Abierto</a>

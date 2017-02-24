@@ -56,6 +56,13 @@ Route::get('users/{id}/cerrar', [
 		'as'	=>'tickets.cerrar'
 	]);
 
+/*=========================================
+=            Seccion de correo            =
+=========================================*/
+
+Route::resource('correo', 'correoController');
+
+
 
 
 

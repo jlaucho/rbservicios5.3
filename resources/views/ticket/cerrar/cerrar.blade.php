@@ -1,0 +1,45 @@
+@extends('adminlte::layouts.app')
+
+@section('linkStyles')
+	<link rel="stylesheet" href="{{asset('plugins/iCheck/all.css')}}">
+@stop
+
+@section('htmlheader_title')
+	{{ trans('adminlte_lang::message.cierre') }}	
+@endsection
+@section('contentheader_title')
+	{{trans('adminlte_lang::message.ticketsAbiertos')}}
+@stop
+@section('contentheader_description')
+	{{trans('adminlte_lang::message.cierre')}}
+@stop
+@section('ubicacion')
+	{{ trans('adminlte_lang::message.ticketsAbiertos') }}</a></li>
+    <li class="active">{{ trans('adminlte_lang::message.cierre') }}
+@stop
+
+@section('main-content')
+	<!--<section class="content">-->
+		@include('ticket.cerrar.primera')
+		@include('ticket.cerrar.segunda')
+		@include('ticket.cerrar.tercera')
+		@include('ticket.cerrar.cuarta')
+	<!--</section>-->
+<!-- /.content -->
+@endsection
+
+@section('scriptPagina')
+	<script src="{{asset('plugins/iCheck/icheck.min.js')}}"></script>
+	<script type="text/javascript">
+		$('input[type="checkbox"].minimal').iCheck({
+	      checkboxClass: 'icheckbox_minimal-blue',
+	      radioClass: 'iradio_minimal-blue'
+	    });
+	    $(document).ready(function(){
+	    	$('#agregar').click(function () {
+	    		alert('Agregar linea');
+	    	})
+	    });
+	</script>
+
+@stop

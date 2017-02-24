@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="box-body collapse">
-          Para registrar usuarios dirijase a el menu del lado izquierdo, pulse usuario y luego registrar
+          Se muestra una lista de usuarios registrados en el sistema, con la jerarquia asignada, en la parte derecha de la tabla se encuentra un vinculo que se llama VER, si se pulsa el sistema se dirigira a la pantalla de modificacion de los datos correspondiente al usuario de esa fila
         </div>
         <!-- /.box-body -->
         <div class="box-footer collapse">

@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="box-body collapse">
-          Para acualizar el usuario asegurese de rellenar todas las casillas, verifique los datos y pulse Actualizar.
+          Para cerrar un servicio, se debe rellenar todas las casillas, aplicar los cuadros de verificacion si aplican para el caso, este genera un monto el cual sera enviado por correo al solicitante.
         </div>
         <!-- /.box-body -->
         <div class="box-footer collapse">
