@@ -107,7 +107,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
-              <table class="table table-striped">
+              <table class="table table-striped" id="tabla">
               <legend class="small">Buenos día, por medio de la presente adjunto el detalle de servicio prestado  <span style="color: blue">(Servicio Prestado al Sr(a). {{$usuario}})</span></legend>
                 <tr>
                   <th>Hrs. Espera</th>
