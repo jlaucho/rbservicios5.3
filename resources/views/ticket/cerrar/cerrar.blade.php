@@ -35,16 +35,32 @@
 	      checkboxClass: 'icheckbox_minimal-blue',
 	      radioClass: 'iradio_minimal-blue'
 	    });
+	    /**
+	     *
+	     * Agregar linea al darle al simbolo de +
+	     *
+	     */
 	    $(document).ready(function(){
 	    	$('#agregar').click(function (event) {
-	    		event.preventDefault()
+	    		event.preventDefault();
 	    		alert('le dio click');
 	    		$('#tabla').append(
-					"<tr>"+
-	                  "<td>{!! Form::text('origen', null, ['class'=>'form-control']) !!}</td><td>{!! Form::text('destino', null, ['class'=>'form-control']) !!}</td><td>{!! Form::text('Km', null, ['class'=>'form-control']) !!}</td><td>{!! Form::checkbox('encomienda', 'NO', false, ['class'=>'minimal']) !!}</td><td>{!! Form::checkbox('bono_nocturno', 'NO', false, ['class'=>'minimal']) !!}</td><td>{!! Form::checkbox('vacio', 'NO', false, ['class'=>'minimal']) !!}</td></tr>"
+				'<tr>'+
+                  '<td>{!! Form::text("origen[]", null, ["class"=>"form-control"]) !!}</td>'+
+                  '<td>{!! Form::text("destino[]", null, ["class"=>"form-control"]) !!}</td>'+
+                  '<td>{!! Form::text("Km[]", null, ["class"=>"form-control"]) !!}</td>'+
+                  '<td>{!! Form::checkbox("encomienda[]", "SI", false, ["class"=>"minimal"]) !!}</td>'+
+                  '<td>{!! Form::checkbox("bono_nocturno[]", "SI", false, ["class"=>"minimal"]) !!}</td>'+
+                  '<td>{!! Form::checkbox("vacio[]", "SI", false, ["class"=>"minimal"]) !!}</td>'+
+                '</tr>'
 				);
+	    	$('input[type="checkbox"].minimal').iCheck({
+		      checkboxClass: 'icheckbox_minimal-blue',
+		      radioClass: 'iradio_minimal-blue'
+		    });
 	    	})
 	    });
+
 	</script>
 
 @stop
