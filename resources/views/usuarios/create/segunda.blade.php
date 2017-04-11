@@ -106,7 +106,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-user"></i>
                   </div>
-                  {!! Form::file('img', ['class'=>'form-control pull-right']) !!}
+                  {!! Form::file('img', ['class'=>'form-control pull-right', 'accept'=>'image/*']) !!}
                 </div>
               </div>
 

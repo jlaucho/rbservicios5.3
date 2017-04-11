@@ -6,6 +6,7 @@ use App\Modelos\Cliente;
 use App\Modelos\User;
 use App\Modelos\UsuarioCliente;
 use Illuminate\Http\Request;
+use Image;
 
 class usuarioController extends Controller
 {
@@ -52,10 +53,23 @@ class usuarioController extends Controller
         $usu->password = bcrypt($request->password);
         /*----------  Se guarda la informacion de la foto  ----------*/
         if(isset($request->img)){
-            $extension = request()->file('img')->getClientOriginalExtension();
+            $file = request()->file('img');
+            $nombre = time().'-'.$file->getClientOriginalName();
+            $path = public_path('avatar/'.$nombre);
+            $image = Image::make($file);
+            $image->resize(500, 500);
+            
+            $image->save($path);
+
+            //$imagen = Image::make($file->getRealPath());
+            //dd($imagen->encode('data-url'));
+            //dd('entro en imagen');
+            /*------------------------------------------------------------------*/
+            /*$extension = request()->file('img')->getClientOriginalExtension();
             $nombre = time().'_'.$request->name.'_'.$request->apellido.'.'.$extension;
-            request()->file('img')->storeAs('',$nombre,'img');
-            $usu->img = $nombre;
+            $file->storeAs('',$nombre,'img');
+            $usu->img = $nombre;*/
+            /*------------------------------------------------------------------*/
         }
         /* Se guardan los datos en la BD */
         $usu->save();

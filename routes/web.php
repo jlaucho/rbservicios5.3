@@ -62,6 +62,13 @@ Route::get('users/{id}/cerrar', [
 
 Route::resource('correo', 'correoController');
 
+/*==========================================================
+=            Seccion de controlador de Imagenes            =
+==========================================================*/
+
+Route::get('image', 'imageController@index');
+
+
 
 
 
