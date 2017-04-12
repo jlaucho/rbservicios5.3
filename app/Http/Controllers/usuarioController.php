@@ -57,7 +57,8 @@ class usuarioController extends Controller
             $nombre = time().'-'.$file->getClientOriginalName();
             $path = public_path('avatar/'.$nombre);
             $image = Image::make($file);
-            $image->resize(500, 500);
+            $image->resize(200, 200);
+            $usu->img = $nombre;
             
             $image->save($path);
 
